@@ -31,7 +31,7 @@ The below are the steps on how you would add a polygon for geo fence
 1) head to geofencing screen using "create Geo fencing" button in the guardian profile
 2) touch "add markers" button to start adding markers
 3) touch on the map to "add markers"
-    3.1) "remove marker" removes the latest added marker. If there are 4 markers on the map you need to hit the button 4 times to hit the marker.
+3.1) "remove marker" removes the latest added marker. If there are 4 markers on the map you need to hit the button 4 times to hit the marker.
 4) click "add area" when you are satified with how to markers look to show the added polygon
 
 Swiping back in general takes you back to the previous screen.
