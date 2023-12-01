@@ -42,35 +42,11 @@ aws_region = 'YOUR_AWS_REGION'
 
 # Data Collection
 
-## Table of Contents
-- [Features](#features)
-- [Prerequisites](#prerequisites)
-- [Getting Started](#getting-started)
-- [Usage](#usage)
-- [Contributors](#contributors)
-- [License](#license)
-
 ## Features
 - Record video and view recorded videos.
 - Calculate respiratory rate and heart rate from recorded videos.
 - Enter and upload symptoms for health monitoring.
 - Display symptoms at the Guardian's profile.
-
-## Prerequisites
-Before you begin, ensure you have met the following requirements:
-- Android Studio installed.
-- Android emulator or a physical Android device.
-- AWS resources created as specified in the project documentation.
-
-## Getting Started
-1. **Clone the Repository:**
-   - Clone the Android app repository from the provided URL.
-
-2. **Open the Project:**
-   - Open the project in Android Studio.
-
-3. **Build and Run:**
-   - Build and run the app on your Android emulator or device.
 
 ## Usage
 1. **Record Video:**
