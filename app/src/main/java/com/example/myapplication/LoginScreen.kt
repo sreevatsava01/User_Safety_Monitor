@@ -69,10 +69,17 @@ class LoginScreen : AppCompatActivity() {
                 startActivity(switchToGrandpaActivity)
 //                finish()
             }
-            if(userName.equals("guardian") && password.equals("angel")){
+            else if(userName.equals("guardian") && password.equals("angel")){
                 val switchToGrandpaActivity = Intent(this@LoginScreen , GuardianScreen::class.java)
                 startActivity(switchToGrandpaActivity)
 //                finish()
+            }
+            else {
+                Toast.makeText(
+                    this@LoginScreen,
+                    "Enter Correct credentials",
+                    Toast.LENGTH_SHORT
+                ).show()
             }
         }
 
