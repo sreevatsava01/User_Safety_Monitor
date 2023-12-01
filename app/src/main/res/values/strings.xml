@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="symptoms">Symptoms</string>
+    <string name="upload_signs">upload signs</string>
+    <string name="record">Record</string>
+    <string name="measure_heart_rate">Measure Heart Rate</string>
+    <string name="measure_respiratory_rate">Measure Respiratory Rate</string>
+    <string name="title_activity_main2">MainActivity2</string>
+    <string name="upload_measurements">upload measurements</string>
+    <string name="title_activity_main3">MainActivity3</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+    <string name="default_notification_channel_id">notification_channel</string>
+    <string name="aws_access_key">AKIAQKCB34WRBO6ZH3C2</string>
+    <string name="aws_secret_key">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</string>
+
+    <string name="directions_screen">Directions Screen\n</string>
+    <string name="from_location_co_ordinates">from location Co-ordinates</string>
+    <string name="to_Location_co_ordinates">To location Co-ordinates</string>
+    <string name="api_result_will_be_displayed_here">API result will be displayed here</string>
+    <string name="road_condition_poor_cognitive_workload_hcw">Road Condition: Poor\nCognitive Workload: HCW</string>
+    <string name="road_condition_good_cognitive_workload_lcw">Road Condition: Good\nCognitive Workload: LCW</string>
+    <string name="title_activity_login_screen">LoginScreen</string>
+    <string name="sign_in">Sign In</string>
+    <string name="title_activity_guardian_screen">guardianScreen</string>
+    <string name="title_activity_create_geo_fencing_screen">CreateGeoFencingScreen</string>
+    <string name="title_activity_geo_fencing">GeoFencing</string>
+    <string name="UserSymptoms">UserSymptoms</string>
+
+</resources>
