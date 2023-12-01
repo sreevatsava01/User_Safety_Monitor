@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView
+        android:id="@+id/textTopHeading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textAlignment="center"
+        android:padding="20dp"
+        android:textSize="20dp"
+        android:textColor="@color/design_default_color_primary_dark"
+        android:text="SCROLL TO VIEW OPTIONS">
+
+    </TextView>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:fadeScrollbars="false"
+        android:scrollbarSize="10dp"
+
+        android:padding="5dp"
+        android:background="@drawable/bordered_background_scroll">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bordered_background"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/nausea"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:text="Nausea"
+                    android:textAlignment="center"
+                    android:textSize="20dp" />
+
+
+                <RatingBar
+                    android:id="@+id/nausearating"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginTop="2dp"
+                    android:scaleX="0.8"
+                    android:scaleY="0.8" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bordered_background"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/headAche"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:text="HeadAche"
+
+                    android:textAlignment="center"
+                    android:textSize="20dp" />
+
+                <RatingBar
+                    android:id="@+id/headAcheRating"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginTop="2dp"
+                    android:scaleX="0.8"
+                    android:scaleY="0.8" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bordered_background"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/diarrhea"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:text="Diarrhea"
+
+                    android:textAlignment="center"
+                    android:textSize="20dp" />
+
+                <RatingBar
+                    android:id="@+id/diarrheaRating"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginTop="2dp"
+                    android:scaleX="0.8"
+                    android:scaleY="0.8" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bordered_background"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/soar_throat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:text="Soar Throat"
+
+                    android:textAlignment="center"
+                    android:textSize="20dp" />
+
+                <RatingBar
+                    android:id="@+id/soar_throatRating"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginTop="2dp"
+                    android:scaleX="0.8"
+                    android:scaleY="0.8" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bordered_background"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/fever"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:text="Fever"
+
+                    android:textAlignment="center"
+                    android:textSize="20dp" />
+
+                <RatingBar
+                    android:id="@+id/feverRating"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginTop="2dp"
+                    android:scaleX="0.8"
+                    android:scaleY="0.8" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bordered_background"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/muscle_ache"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:text="Muscle Ache"
+
+                    android:textAlignment="center"
+                    android:textSize="20dp" />
+
+                <RatingBar
+                    android:id="@+id/muscle_acheRating"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginTop="2dp"
+                    android:scaleX="0.8"
+                    android:scaleY="0.8" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bordered_background"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/loss_of_smell_taste"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:text="Loss of smell and taste"
+
+                    android:textAlignment="center"
+                    android:textSize="20dp" />
+
+                <RatingBar
+                    android:id="@+id/loss_of_smell_tasteRating"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginTop="2dp"
+                    android:scaleX="0.8"
+                    android:scaleY="0.8" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bordered_background"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/cough"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:text="Cough"
+
+                    android:textAlignment="center"
+                    android:textSize="20dp" />
+
+                <RatingBar
+                    android:id="@+id/coughRating"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginTop="2dp"
+                    android:scaleX="0.8"
+                    android:scaleY="0.8" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bordered_background"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/shortness_breath"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:text="Shortness of breath"
+
+                    android:textAlignment="center"
+                    android:textSize="20dp" />
+
+                <RatingBar
+                    android:id="@+id/shortness_breathRating"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginTop="2dp"
+                    android:scaleX="0.8"
+                    android:scaleY="0.8" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bordered_background"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/feeling_tired"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:text="Feeling tired"
+
+                    android:textAlignment="center"
+                    android:textSize="20dp" />
+
+                <RatingBar
+                    android:id="@+id/feeling_tiredRating"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginTop="2dp"
+                    android:scaleX="0.8"
+                    android:scaleY="0.8" />
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <Button
+        android:id="@+id/uploadSigns"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textAlignment="center"
+        android:layout_centerHorizontal="true"
+        android:text="Upload Signs"
+        android:layout_marginTop="30dp"
+        android:layout_alignParentBottom="true"/>
+
+
+</LinearLayout>
