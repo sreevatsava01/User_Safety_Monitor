@@ -15,7 +15,7 @@ Install the required dependencies such as gradle etc if needed ideally there and
 
 Build the project, hit run and launch the app in emulator.
 
-You will be presented initally with a guardian screen, Use the credentials as shown below.
+You will be presented initally with a login screen, Use the credentials as shown below.
 
 UserName :- grandpa
 Password :- 100YrsOld
