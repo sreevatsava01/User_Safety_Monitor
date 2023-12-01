@@ -64,12 +64,12 @@ class LoginScreen : AppCompatActivity() {
                 ).show()
             }
 //            TODO ensure correct password while after inital development
-            if(userName.equals("grandpa") && password.isNotEmpty()){
+            if(userName.equals("grandpa") && password.equals("100YrsOld")){
                 val switchToGrandpaActivity = Intent(this@LoginScreen , MainActivity::class.java)
                 startActivity(switchToGrandpaActivity)
 //                finish()
             }
-            if(userName.equals("guardian") && password.isNotEmpty()){
+            if(userName.equals("guardian") && password.equals("angel")){
                 val switchToGrandpaActivity = Intent(this@LoginScreen , GuardianScreen::class.java)
                 startActivity(switchToGrandpaActivity)
 //                finish()
