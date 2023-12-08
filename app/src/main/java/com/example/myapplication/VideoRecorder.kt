@@ -19,11 +19,11 @@ import java.util.concurrent.ExecutionException
 import androidx.camera.view.PreviewView
 import androidx.lifecycle.LifecycleOwner
 
-class VideoRecorder(private val context: Context, private val cameraFloatingWindow: PreviewView) {
+class VideoRecorder(private val context: Context, private val cameraFloatingWindow: PreviewView, private val textHR: TextView) {
     private var recording: Recording? = null
     private var vC: VideoCapture<Recorder>? = null
     private var cameraFacing = CameraSelector.LENS_FACING_BACK
-    private var uri: Uri? = null
+    var uri: Uri? = null
 
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     fun startVideoCapturing() {
@@ -88,10 +88,8 @@ class VideoRecorder(private val context: Context, private val cameraFloatingWind
                     }
                     recording = null
                     vC = null
-
-                    // Once the recording is done, the recorded URI will be passed into an asynchronous task that
-                    // performs the video processing to get the Heart Rate. This is part of another component
-                    // implemented by Vikas Kamineni.
+                    val slowTask = SlowTask(context, textHR, uri!!)
+                    slowTask.execute()
                     Toast.makeText(context, msg, Toast.LENGTH_SHORT).show()
                 } else {
                     recording!!.close()

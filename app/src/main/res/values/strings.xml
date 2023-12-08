@@ -1,7 +1,10 @@
 <resources>
     <string name="app_name">My Application</string>
     <string name="symptoms">Symptoms</string>
+<<<<<<< HEAD
     <string name="displaySymptoms">Display Symptoms</string>
+=======
+>>>>>>> main
     <string name="upload_signs">upload signs</string>
     <string name="record">Record</string>
     <string name="measure_heart_rate">Measure Heart Rate</string>
@@ -18,6 +21,11 @@
     <string name="aws_access_key">AKIAQKCB34WRBO6ZH3C2</string>
     <string name="aws_secret_key">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</string>
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> main
     <string name="lorem_ipsum">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris
         volutpat, dolor id interdum ullamcorper, risus dolor egestas lectus, sit amet mattis purus
@@ -54,6 +62,10 @@
         libero vel nunc consequat, quis tincidunt nisl eleifend. Cras bibendum enim a justo luctus
         vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
     </string>
+<<<<<<< HEAD
+=======
+>>>>>>> main
+>>>>>>> main
     <string name="directions_screen">Directions Screen\n</string>
     <string name="from_location_co_ordinates">from location Co-ordinates</string>
     <string name="to_Location_co_ordinates">To location Co-ordinates</string>
@@ -67,4 +79,15 @@
     <string name="title_activity_geo_fencing">GeoFencing</string>
     <string name="UserSymptoms">UserSymptoms</string>
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+    <string name="app_name">guardianApp</string>
+    <string name="aws_access_key">AKIAQKCB34WRBO6ZH3C2</string>
+    <string name="aws_secret_key">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</string>
+    <string name="default_notification_channel_id">notification_channel</string>
+    <string name="title_activity_maps">MapsActivity</string>
+>>>>>>> main
+>>>>>>> main
 </resources>

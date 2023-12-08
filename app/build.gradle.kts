@@ -87,6 +87,15 @@ dependencies {
     androidTestImplementation(platform("androidx.compose:compose-bom:2023.03.00"))
     androidTestImplementation(platform("androidx.compose:compose-bom:2023.03.00"))
     androidTestImplementation(platform("androidx.compose:compose-bom:2023.03.00"))
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+
+    androidTestImplementation("org.mockito:mockito-android:3.+")
+
+>>>>>>> main
+>>>>>>> main
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
 
@@ -123,6 +132,13 @@ dependencies {
     implementation("com.amazonaws:aws-android-sdk-core:2.73.0")
     implementation(platform("com.google.firebase:firebase-bom:32.6.0"))
     implementation("com.google.firebase:firebase-analytics")
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+
+>>>>>>> main
+>>>>>>> main
 //    implementation ("com.amazonaws:aws-android-sdk-dynamodb:2.x.x")
     // https://mvnrepository.com/artifact/com.amazonaws/aws-android-sdk-ddb-mapper
     implementation ("com.amazonaws:aws-android-sdk-ddb-mapper:2.73.0")
