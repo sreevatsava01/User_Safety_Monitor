@@ -63,3 +63,4 @@ My contribution to the project involved developing the health monitoring compone
 ### Dependencies
 - VideoRecorder.kt - Implemented as another component to record the video
 >>>>>>> main
+>>>>>>> main
