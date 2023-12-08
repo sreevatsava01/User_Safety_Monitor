@@ -1,38 +1,63 @@
 # User_Safety_Monitor
+
+##### Mobile computing project of group 26
+
+Our project consists of creating an android application which enable a care taker(guardian) to get the health information on the fly and be able to check on the User(grandpa) This enables the care taker to take necessary action and keep tabs on the user so that their health is always at the best condition.
+
+Link to our github repo : [Link](https://github.com/sreevatsava01/User_Safety_Monitor/tree/main)
+
+### Installation
+
+---
+
+##### Requirements (for AWS based testing)
+
+```
+boto3
+```
+
+#### Installing using pip:
+
+```
+pip3 install boto3
+```
+
+### Running android app
+
+- clone the repo from the above mentioned repo
+- Unzip and open the app in Android Studio
+  - Upon running the app, a simple app appears on the phone
+  - Add physical activity persmissions
+- Walk around to get the steps
+
+### Running AWS components
+
+- clone the repo from the above mentioned repo
+- Unzip the folder
+- Run : python3 sample_sqs_test.py
+  - this will send a message to the SQS queue
+=======
+# UserSafetyMonitor
 mobile computing project of group 26
 
-Our project consists of creating an android application which enable a care taker(guardian) to get the health information on the fly and be able to check on the User(grandpa)
-This enables the care taker to take necessary action and keep tabs on the user so that their health is always at the best condition.
+## Overview
+The "User Safety Monitor" is a mobile health and safety application designed to provide real-time monitoring of vulnerable individuals, such as the elderly and children. The core functionality centers on location tracking with health data integration, offering caregivers immediate updates on the well-being and whereabouts of their dependents. It employs GPS for location tracking, geo-fencing for safety zone adherence, and real-time data communication to alert on health irregularities.
 
-Clone the repo from the git branch sreevatsava_macharla present at 
-https://github.com/sreevatsava01/User_Safety_Monitor/tree/sreevatsava_macharla
+## My Contribution
+My contribution to the project involved developing the health monitoring component. I implemented an asynchronous task to process video recordings from the mobile device's camera to estimate heart rates. I also programmed the system to process accelerometer data to calculate respiratory rates. These health metrics were then integrated into a fuzzy logic controller developed using jFuzzyLite library, that I designed to evaluate the user's danger level, considering various inputs including heart rate, respiratory rate, and step count. This component is crucial for the system's ability to provide a comprehensive health status, enhancing the overall safety monitoring capabilities of the app.
 
-or unzip the code submitted in to a folder
+## Instructions of how to execute the project
+- Download the zip file and unzip to a folder.
+- Open the app in Android Studio.
+- Connect an android device and run the application.
+- Click "Record" button to record a video by placing your tip of the finger close to the back camera (to stop the recording, click record again). This updates the heart rate.
+- Perform movements (walking or running) to updated the Respiratory Rate.
+- For every one minute, we run the Fuzzy Logic to get a Danger level, which is displayed as a Toast in the app main window.
 
-Android studio should be able to pick the the folder as an app
-
-Install the required dependencies such as gradle etc if needed ideally there android studio will install them for you.
-
-Build the project, hit run and launch the app in emulator.
-
-You will be presented initally with a login screen, Use the credentials as shown below.
-
-UserName :- grandpa
-Password :- 100YrsOld
-
-UserName :- guardian
-Password :- angel
-
-use the grandpa credentials to login to the user profile and vice versa for the guardian profile
-
-The flow diagram presented in the report should give you  an overall idea of what the UI does
-
-The below are the steps on how you would add a polygon for geo fence
-1) head to geofencing screen using "create Geo fencing" button in the guardian profile
-2) touch "add markers" button to start adding markers
-3) touch on the map to "add markers"
-3.1) "remove marker" removes the latest added marker. If there are 4 markers on the map you need to hit the button 4 times to hit the marker.
-4) click "add area" when you are satified with how to markers look to show the added polygon
-
-Swiping back in general takes you back to the previous screen.
-
+## File structure
+- MainActivity.kt
+- RespiratoryRateListener.kt - Calculates Respiratory Rate per minute
+- SlowTask.kt - An asynchronous task to calculate Heart Rate
+- FuzzyLogicController.java - Fuzzy Logic Controller using JFuzzyLite
+### Dependencies
+- VideoRecorder.kt - Implemented as another component to record the video

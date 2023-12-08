@@ -53,6 +53,7 @@ android {
 
 dependencies {
 
+<<<<<<< HEAD
     implementation("androidx.core:core-ktx:1.12.0")
     implementation ("com.opencsv:opencsv:5.5")
     implementation("androidx.appcompat:appcompat:1.6.1")
@@ -60,17 +61,35 @@ dependencies {
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
     implementation("androidx.activity:activity-compose:1.8.1")
+=======
+    implementation("androidx.core:core-ktx:1.8.0")
+    implementation ("com.opencsv:opencsv:5.5")
+    implementation("androidx.appcompat:appcompat:1.6.1")
+    implementation("com.google.android.material:material:1.9.0")
+    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.1")
+    implementation("androidx.activity:activity-compose:1.7.2")
+>>>>>>> main
     implementation(platform("androidx.compose:compose-bom:2023.03.00"))
     implementation("androidx.compose.ui:ui")
     implementation("androidx.compose.ui:ui-graphics")
     implementation("androidx.compose.ui:ui-tooling-preview")
     implementation("androidx.compose.material3:material3")
+<<<<<<< HEAD
     implementation("androidx.navigation:navigation-fragment-ktx:2.7.5")
     implementation("androidx.navigation:navigation-ui-ktx:2.7.5")
     implementation(platform("androidx.compose:compose-bom:2023.03.00"))
     implementation("com.google.maps:google-maps-services:2.2.0")
     implementation("com.google.code.gson:gson:2.10.1")
     implementation("com.squareup.okhttp3:okhttp:4.10.0")
+=======
+    implementation("androidx.navigation:navigation-fragment-ktx:2.7.1")
+    implementation("androidx.navigation:navigation-ui-ktx:2.7.1")
+    implementation(platform("androidx.compose:compose-bom:2023.03.00"))
+    implementation("com.google.maps:google-maps-services:2.2.0")
+    implementation("com.google.code.gson:gson:2.8.5")
+    implementation("com.squareup.okhttp3:okhttp:3.14.9")
+>>>>>>> main
     implementation("org.slf4j:slf4j-simple:1.7.25")
     implementation(platform("androidx.compose:compose-bom:2023.03.00"))
     implementation("com.google.android.gms:play-services-maps:18.2.0")
@@ -87,6 +106,18 @@ dependencies {
     androidTestImplementation(platform("androidx.compose:compose-bom:2023.03.00"))
     androidTestImplementation(platform("androidx.compose:compose-bom:2023.03.00"))
     androidTestImplementation(platform("androidx.compose:compose-bom:2023.03.00"))
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+
+    androidTestImplementation("org.mockito:mockito-android:3.+")
+
+>>>>>>> main
+>>>>>>> main
+>>>>>>> main
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
 
@@ -123,6 +154,16 @@ dependencies {
     implementation("com.amazonaws:aws-android-sdk-core:2.73.0")
     implementation(platform("com.google.firebase:firebase-bom:32.6.0"))
     implementation("com.google.firebase:firebase-analytics")
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+
+>>>>>>> main
+>>>>>>> main
+>>>>>>> main
 //    implementation ("com.amazonaws:aws-android-sdk-dynamodb:2.x.x")
     // https://mvnrepository.com/artifact/com.amazonaws/aws-android-sdk-ddb-mapper
     implementation ("com.amazonaws:aws-android-sdk-ddb-mapper:2.73.0")

@@ -50,9 +50,44 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
     override fun onUpgrade(p0: SQLiteDatabase?, p1: Int, p2: Int) {
     }
 
+<<<<<<< HEAD
 
 
 
+=======
+    fun addPolygon(points: List<LatLng>) {
+        val db = this.writableDatabase
+        val values = ContentValues()
+        val pointsJson = Gson().toJson(points)  // Convert list of LatLng to JSON string
+        values.put("points", pointsJson)
+        db.insert("polygons", null, values)
+        Log.d("DatabaseHelper", "Added polygons to db")
+        db.close()
+    }
+
+
+
+    @SuppressLint("Range")
+    fun getLastPolygon(): List<LatLng> {
+        val db = this.readableDatabase
+        val cursor = db.rawQuery("SELECT * FROM polygons ORDER BY id DESC LIMIT 1", null)
+        var points = listOf<LatLng>()
+
+        if (cursor.moveToFirst()) {
+            val pointsJson = cursor.getString(cursor.getColumnIndex("points"))
+            points = Gson().fromJson(pointsJson, Array<LatLng>::class.java).toList()
+
+            // Log the fetched values
+            Log.d("DatabaseHelper", "Fetched Polygon Points: $points")
+        } else {
+            Log.d("DatabaseHelper", "No polygons found")
+        }
+        cursor.close()
+        db.close()
+        return points
+    }
+
+>>>>>>> main
     fun uploadSymptoms(symptomsData: Map<String, Float>) {
         val db = this.writableDatabase
         val values = ContentValues()
