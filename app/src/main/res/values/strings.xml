@@ -66,4 +66,9 @@
     <string name="title_activity_geo_fencing">GeoFencing</string>
     <string name="UserSymptoms">UserSymptoms</string>
 
+    <string name="app_name">guardianApp</string>
+    <string name="aws_access_key">AKIAQKCB34WRBO6ZH3C2</string>
+    <string name="aws_secret_key">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</string>
+    <string name="default_notification_channel_id">notification_channel</string>
+    <string name="title_activity_maps">MapsActivity</string>
 </resources>

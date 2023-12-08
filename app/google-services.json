@@ -1,21 +1,21 @@
 {
   "project_info": {
-    "project_number": "960224151243",
-    "project_id": "fcmpushnotification-1dffb",
-    "storage_bucket": "fcmpushnotification-1dffb.appspot.com"
+    "project_number": "110396216395",
+    "project_id": "guardianapp-7a93d",
+    "storage_bucket": "guardianapp-7a93d.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:960224151243:android:be8071061e7a62fae5bd4e",
+        "mobilesdk_app_id": "1:110396216395:android:e20af9cc56849560c3e9ce",
         "android_client_info": {
-          "package_name": "com.example.myapplication"
+          "package_name": "com.example.guardianapp"
         }
       },
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyAXZtWy9LuZSQoDPugWPygiu-Aj8aWDvVc"
+          "current_key": "AIzaSyBUZzvScdHtKPdsr_TJA_yu1V8J9fsoiYI"
         }
       ],
       "services": {
