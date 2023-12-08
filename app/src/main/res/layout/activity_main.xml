@@ -3,9 +3,13 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
 =======
 <<<<<<< HEAD
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+=======
+<<<<<<< HEAD
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
 =======
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+>>>>>>> main
 >>>>>>> main
 >>>>>>> main
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -14,6 +18,8 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+<<<<<<< HEAD
+=======
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
@@ -31,6 +37,7 @@
 
 
 >>>>>>> main
+>>>>>>> main
 
     <LinearLayout
         android:layout_width="350dp"
@@ -44,16 +51,34 @@
         android:layout_centerHorizontal="true"
         android:gravity="center"
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> main
         android:orientation="horizontal">
 
 
         <Button
+<<<<<<< HEAD
+            android:id="@+id/uploadMeasurements"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_gravity="center_vertical"
+            android:layout_weight="5"
+
+            android:text="@string/upload_measurements" />
+        <Button
+=======
+>>>>>>> main
             android:id="@+id/symptoms"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
 
             android:text="@string/symptoms" />
+<<<<<<< HEAD
+    </LinearLayout>
+=======
 
         <Button
             android:id="@+id/displaySymptoms"
@@ -65,6 +90,7 @@
     </LinearLayout>
 =======
         android:orientation="horizontal"/>
+>>>>>>> main
 >>>>>>> main
         <androidx.camera.view.PreviewView
             android:id="@+id/videoView"
@@ -93,8 +119,11 @@
 
                 android:layout_gravity="center_horizontal"
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
                 android:orientation="vertical"/>
 =======
+>>>>>>> main
                 android:orientation="vertical">
                 <TextView
                     android:id="@+id/MHR"
@@ -104,7 +133,19 @@
                     android:layout_marginTop="10dp"
                     android:layout_gravity="center_horizontal"
                     android:text="Heart Rate is : 0.0" />
+<<<<<<< HEAD
+                <Button
+                    android:id="@+id/measureHeartRate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_weight="20"
+                    android:text="@string/measure_heart_rate" />
+            </LinearLayout>
+=======
         </LinearLayout>
+>>>>>>> main
 >>>>>>> main
 
             <LinearLayout
@@ -113,8 +154,11 @@
 
                 android:layout_gravity="center_horizontal"
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
                 android:orientation="vertical"/>
 =======
+>>>>>>> main
                 android:orientation="vertical">
                 <TextView
                     android:id="@+id/MRR"
@@ -124,6 +168,38 @@
                     android:layout_marginTop="10dp"
                     android:layout_gravity="center_horizontal"
                     android:text="Respiratory Rate is : 0.0"/>
+<<<<<<< HEAD
+                <Button
+                    android:id="@+id/measureRespRate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_weight="20"
+                    android:text="@string/measure_respiratory_rate"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textStepCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_gravity="center_horizontal"
+                    android:text="@string/steps_taken_0"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp" />
+            </LinearLayout>
+
+
+=======
             </LinearLayout>
         <TextView
             android:id="@+id/textStepCount"
@@ -134,6 +210,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp" />
 >>>>>>> main
+>>>>>>> main
 
     </LinearLayout>
 
@@ -142,7 +219,11 @@
 <<<<<<< HEAD
 </RelativeLayout>
 =======
+<<<<<<< HEAD
+</RelativeLayout>
+=======
 </RelativeLayout>
 
+>>>>>>> main
 >>>>>>> main
 >>>>>>> main

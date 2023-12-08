@@ -2,8 +2,11 @@
     <string name="app_name">My Application</string>
     <string name="symptoms">Symptoms</string>
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
     <string name="displaySymptoms">Display Symptoms</string>
 =======
+>>>>>>> main
 >>>>>>> main
     <string name="upload_signs">upload signs</string>
     <string name="record">Record</string>
@@ -25,6 +28,9 @@
 =======
 <<<<<<< HEAD
 =======
+<<<<<<< HEAD
+=======
+>>>>>>> main
 >>>>>>> main
     <string name="lorem_ipsum">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris
@@ -64,6 +70,9 @@
     </string>
 <<<<<<< HEAD
 =======
+<<<<<<< HEAD
+=======
+>>>>>>> main
 >>>>>>> main
 >>>>>>> main
     <string name="directions_screen">Directions Screen\n</string>
@@ -78,6 +87,10 @@
     <string name="title_activity_create_geo_fencing_screen">CreateGeoFencingScreen</string>
     <string name="title_activity_geo_fencing">GeoFencing</string>
     <string name="UserSymptoms">UserSymptoms</string>
+<<<<<<< HEAD
+    <string name="steps_taken_0">Steps taken : 0</string>
+
+=======
 
 <<<<<<< HEAD
 =======
@@ -88,6 +101,7 @@
     <string name="aws_secret_key">kqOqBVIIlfwyQInhAvs2nVizbnejSI5ToB3H7Oxf</string>
     <string name="default_notification_channel_id">notification_channel</string>
     <string name="title_activity_maps">MapsActivity</string>
+>>>>>>> main
 >>>>>>> main
 >>>>>>> main
 </resources>
