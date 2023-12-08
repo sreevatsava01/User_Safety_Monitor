@@ -148,6 +148,10 @@ class GuardianScreen : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnPoly
         }
         val dangerLevelText = findViewById<TextView>(R.id.dangerLevelText)
         dangerLevelText.text = "Danger Level : ${dynamoDBItem.danger}"
+        val heartRateText = findViewById<TextView>(R.id.heartRateText)
+        heartRateText.text = "Heart Rate : ${dynamoDBItem.heartRate}"
+        val respiratoryRateText = findViewById<TextView>(R.id.respRateText)
+        respiratoryRateText.text = "Respiratory Rate : ${dynamoDBItem.respiratoryRate}"
         val stepCountText = findViewById<TextView>(R.id.stepCountText)
         stepCountText.text = "Step Count Text : ${dynamoDBItem.steps}"
     }
@@ -200,7 +204,7 @@ class GuardianScreen : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnPoly
 
         // Position the map's camera near Alice Springs in the center of Australia,
         // and set the zoom factor so most of Australia shows on the screen.
-        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(LatLng(33.407134, -111.921223), 18f))
+        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(LatLng(33.407134, -111.921223), 17f))
 
         // Set listeners for click events.
         googleMap.setOnMapClickListener(this)
