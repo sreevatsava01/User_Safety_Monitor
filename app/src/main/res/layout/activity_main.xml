@@ -1,24 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"> <!-- Added padding for overall layout -->
+    tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/btnShowMap"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Fetch Polygons"
-        android:layout_centerInParent="true"
-        android:layout_marginBottom="16dp" /> <!-- Margin for spacing between buttons -->
 
-    <Button
-        android:id="@+id/btnShowSymptoms"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="350dp"
+        android:layout_height="match_parent"
+        android:layout_marginTop="100dp"
+        android:layout_centerHorizontal="true"
+        android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Fetch Symptoms"
-        android:layout_centerInParent="true"
-        android:layout_below="@+id/btnShowMap"
-        android:enabled="true" /> <!-- Enabled the button -->
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:orientation="horizontal"/>
+        <androidx.camera.view.PreviewView
+            android:id="@+id/videoView"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:visibility="visible"
+            android:layout_gravity="center_horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ButtonSignsUpload" />
+        <Button
+            android:id="@+id/record"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center_horizontal"
+
+            android:text="@string/record"
+            tools:layout_editor_absoluteX="264dp"
+            tools:layout_editor_absoluteY="353dp" />
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_gravity="center_horizontal"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/MHR"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_gravity="center_horizontal"
+                    android:text="Heart Rate is : 0.0" />
+        </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_gravity="center_horizontal"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/MRR"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_gravity="center_horizontal"
+                    android:text="Respiratory Rate is : 0.0"/>
+            </LinearLayout>
+
+    </LinearLayout>
+
+
 
 </RelativeLayout>
+

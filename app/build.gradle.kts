@@ -2,15 +2,14 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("com.google.gms.google-services")
-    id("com.google.android.libraries.mapsplatform.secrets-gradle-plugin")
 }
 
 android {
-    namespace = "com.example.guardianapp"
+    namespace = "com.example.myapplication"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.guardianapp"
+        applicationId = "com.example.myapplication"
         minSdk = 29
         targetSdk = 33
         versionCode = 1
@@ -88,7 +87,9 @@ dependencies {
     androidTestImplementation(platform("androidx.compose:compose-bom:2023.03.00"))
     androidTestImplementation(platform("androidx.compose:compose-bom:2023.03.00"))
     androidTestImplementation(platform("androidx.compose:compose-bom:2023.03.00"))
+
     androidTestImplementation("org.mockito:mockito-android:3.+")
+
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
 
@@ -125,6 +126,11 @@ dependencies {
     implementation("com.amazonaws:aws-android-sdk-core:2.73.0")
     implementation(platform("com.google.firebase:firebase-bom:32.6.0"))
     implementation("com.google.firebase:firebase-analytics")
+
+//    implementation ("com.amazonaws:aws-android-sdk-dynamodb:2.x.x")
+    // https://mvnrepository.com/artifact/com.amazonaws/aws-android-sdk-ddb-mapper
+    implementation ("com.amazonaws:aws-android-sdk-ddb-mapper:2.73.0")
+
 }
 
 afterEvaluate {
