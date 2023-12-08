@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # User_Safety_Monitor
 
 ##### Mobile computing project of group 26
@@ -6,47 +7,60 @@ Our project consists of creating an android application which enable a care take
 
 Link to our github repo : [Link](https://github.com/sreevatsava01/User_Safety_Monitor/tree/main)
 
-### Prerequisites:
+### Installation
 
-- Android Studio
-- Google Maps API key
-- Android device or emulator with Google Play services
-- Minimum SDK version: (specify your minimum SDK)
+---
 
-### Setup:
-
-- The Google Maps API key is already provided. If need obtain a Google Maps API key from the Google Cloud Console and place the API key in the AndroidManifet.xml file.
-- Ensure all dependencies are correctly installed. They should be listed in the build.gradle files.
-- The AWS Credentials for DynamoDB is already provided. If need replace with the Credentials in the DynamoDBManager file.
-
-### Running the App:
-
-- Connect your Android device and enable USB debugging, or set up an emulator in Android Studio.
-- In Android Studio, click on 'Run' (play button) and select the device or emulator. This will build the app and the app will open on your device/emulator.
-- Ensure location services are enabled on the device for full functionality.
-
-### Permissions:
-
-- Coarse location access
-- Fine location access
-- Background location access
-
-### Testing:
-
-- The default geofence of different polygon shapes are created based on the following coordinates provided:
+##### Requirements (for AWS based testing)
 
 ```
-Polygon 1[ (33.408210082137195, -111.91948313266039),
-                    (33.408210082137195, -111.91842835396528),
-                    (33.40668809164925, -111.91825702786446),
-                    (33.406563823502914, -111.91950559616089) ]
-Polygon 2 [ (33.407622616000666, -111.9177108630538),
-            	        (33.40621396853258, -111.91765051335096),
-                     (33.406253992012566, -111.91558990627527),
-                     (33.407550127050044, -111.91550608724356) ]
+boto3
 ```
 
-- The current location of the device is set to gps coordinates `(33.4072, -111.9199)` for testing purposes.
-- Using the emulator setting to start a route from start coordinates `(33.4072, -111.92) `to destination coordinates `(33.4078, -11.913)`
-- As the location moves through geofence, the app gets notifications/toast of geofence entry/exit.
+#### Installing using pip:
 
+```
+pip3 install boto3
+```
+
+### Running android app
+
+- clone the repo from the above mentioned repo
+- Unzip and open the app in Android Studio
+  - Upon running the app, a simple app appears on the phone
+  - Add physical activity persmissions
+- Walk around to get the steps
+
+### Running AWS components
+
+- clone the repo from the above mentioned repo
+- Unzip the folder
+- Run : python3 sample_sqs_test.py
+  - this will send a message to the SQS queue
+=======
+# UserSafetyMonitor
+mobile computing project of group 26
+
+## Overview
+The "User Safety Monitor" is a mobile health and safety application designed to provide real-time monitoring of vulnerable individuals, such as the elderly and children. The core functionality centers on location tracking with health data integration, offering caregivers immediate updates on the well-being and whereabouts of their dependents. It employs GPS for location tracking, geo-fencing for safety zone adherence, and real-time data communication to alert on health irregularities.
+
+## My Contribution
+My contribution to the project involved developing the health monitoring component. I implemented an asynchronous task to process video recordings from the mobile device's camera to estimate heart rates. I also programmed the system to process accelerometer data to calculate respiratory rates. These health metrics were then integrated into a fuzzy logic controller developed using jFuzzyLite library, that I designed to evaluate the user's danger level, considering various inputs including heart rate, respiratory rate, and step count. This component is crucial for the system's ability to provide a comprehensive health status, enhancing the overall safety monitoring capabilities of the app.
+
+## Instructions of how to execute the project
+- Download the zip file and unzip to a folder.
+- Open the app in Android Studio.
+- Connect an android device and run the application.
+- Click "Record" button to record a video by placing your tip of the finger close to the back camera (to stop the recording, click record again). This updates the heart rate.
+- Perform movements (walking or running) to updated the Respiratory Rate.
+- For every one minute, we run the Fuzzy Logic to get a Danger level, which is displayed as a Toast in the app main window.
+
+## File structure
+- MainActivity.kt
+- RespiratoryRateListener.kt - Calculates Respiratory Rate per minute
+- SlowTask.kt - An asynchronous task to calculate Heart Rate
+- FuzzyLogicController.java - Fuzzy Logic Controller using JFuzzyLite
+### Dependencies
+- VideoRecorder.kt - Implemented as another component to record the video
+>>>>>>> main
+>>>>>>> main
