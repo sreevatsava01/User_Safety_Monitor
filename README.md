@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # User_Safety_Monitor
 
 ##### Mobile computing project of group 26
@@ -62,5 +61,3 @@ My contribution to the project involved developing the health monitoring compone
 - FuzzyLogicController.java - Fuzzy Logic Controller using JFuzzyLite
 ### Dependencies
 - VideoRecorder.kt - Implemented as another component to record the video
->>>>>>> main
->>>>>>> main

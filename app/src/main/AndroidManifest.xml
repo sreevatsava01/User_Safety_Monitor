@@ -7,9 +7,13 @@
 <<<<<<< HEAD
     <uses-feature android:name="android.hardware.camera.any" />
 =======
+<<<<<<< HEAD
+    <uses-feature android:name="android.hardware.camera.any" />
+=======
 
     <uses-feature android:name="android.hardware.camera.any" />
 
+>>>>>>> main
 >>>>>>> main
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
@@ -28,7 +32,10 @@
         android:supportsRtl="true"
 <<<<<<< HEAD
 =======
+<<<<<<< HEAD
+=======
 
+>>>>>>> main
 >>>>>>> main
         android:theme="@style/Theme.MyApplication"
         tools:targetApi="31">
@@ -47,8 +54,11 @@
             android:value="@string/default_notification_channel_id" />
 
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
 
 =======
+>>>>>>> main
 >>>>>>> main
         <meta-data
             android:name="com.google.android.gms.version"
@@ -57,6 +67,20 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyBMo52_SpqzS2jXNVyLNoVf3qUaP3b0WLk" />
 
+<<<<<<< HEAD
+        <activity
+            android:name=".Symptoms"
+            android:exported="false"
+            android:label="@string/title_activity_main2"
+            android:theme="@style/Theme.MyApplication" />
+        <activity
+            android:name=".UserSymptoms"
+            android:exported="false"
+            android:label="@string/UserSymptoms"
+            android:theme="@style/Theme.MyApplication" />
+        <activity
+            android:name=".MainActivity"
+=======
 <<<<<<< HEAD
         <activity
             android:name=".MainActivity"
@@ -71,11 +95,14 @@
         <activity
             android:name=".MainActivity"
 >>>>>>> main
+>>>>>>> main
             android:exported="true">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.myapplication.MainActivity" />
 
+<<<<<<< HEAD
+=======
 <<<<<<< HEAD
 =======
         android:theme="@style/Theme.GuardianApp"
@@ -116,12 +143,15 @@
             android:theme="@style/Theme.GuardianApp">
 
 >>>>>>> main
+>>>>>>> main
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+<<<<<<< HEAD
+=======
 
 <<<<<<< HEAD
 =======
@@ -139,6 +169,7 @@
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
+>>>>>>> main
 >>>>>>> main
     </application>
 
