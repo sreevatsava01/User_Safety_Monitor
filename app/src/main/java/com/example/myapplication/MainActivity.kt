@@ -1,14 +1,7 @@
 package com.example.myapplication
 
-<<<<<<< HEAD
 import android.app.ActionBar
 import android.Manifest
-import android.annotation.SuppressLint
-=======
-
-import android.app.ActionBar
-import android.Manifest
->>>>>>> main
 import android.content.Context
 import android.content.pm.PackageManager
 import android.content.Intent
@@ -17,11 +10,8 @@ import android.hardware.SensorManager
 import android.location.Location
 import android.os.Bundle
 import android.os.Handler
-<<<<<<< HEAD
 import android.os.Looper
 import android.util.Log
-=======
->>>>>>> main
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
@@ -29,7 +19,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.camera.view.PreviewView
 import androidx.core.app.ActivityCompat
 import com.google.android.gms.location.FusedLocationProviderClient
-<<<<<<< HEAD
 import com.google.android.gms.location.Geofence
 import com.google.android.gms.location.LocationCallback
 import com.google.android.gms.location.LocationRequest
@@ -38,31 +27,28 @@ import com.google.android.gms.location.LocationServices
 import com.google.android.gms.maps.model.LatLng
 import org.json.JSONObject
 
-class MainActivity : AppCompatActivity(){
+class MainActivity : AppCompatActivity(), StepCountListener, RespRateListenerInterface  {
     var heartRate: Int = 0
     var respiratoryRate: Int = 0
     var hasmeasureHR: Boolean = false
     var hasmeasureRR: Boolean = false
 
+    private lateinit var dynamoDBManager: DynamoDBManager
 
-    private lateinit var textRR: TextView
+    private lateinit var locationClient: FusedLocationProviderClient
 
-    private lateinit var textStepCount: TextView
+    private var allPolygons: List<List<LatLng>> = emptyList()
 
-    private lateinit var textHR: TextView
-    private lateinit var cameraFloatingWindow: PreviewView
+    private val LOCATION_REQUEST_CODE = 101
+    private var lastTransitionType: Int? = null
 
-    @SuppressLint("MissingSuperCall")
-=======
-import com.google.android.gms.maps.model.LatLng
-import org.json.JSONObject
-
-
-class MainActivity : AppCompatActivity(), RespRateListenerInterface  {
     private lateinit var sensorManager: SensorManager
 
     private lateinit var respiratoryRateListener: RespiratoryRateListener
     private lateinit var textRR: TextView
+
+    private lateinit var stepCounterListener: StepCounterListener
+    private lateinit var textStepCount: TextView
 
     private lateinit var textHR: TextView
     private lateinit var videoRecorder: VideoRecorder
@@ -71,7 +57,6 @@ class MainActivity : AppCompatActivity(), RespRateListenerInterface  {
     private lateinit var fuzzyLogicController: FuzzyLogicController
     private val handler = Handler()
 
->>>>>>> main
     override fun onBackPressed() {
         //do nothign
     }
@@ -79,8 +64,11 @@ class MainActivity : AppCompatActivity(), RespRateListenerInterface  {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        AllowPermissions(this)
 
-<<<<<<< HEAD
+        dynamoDBManager = DynamoDBManager(this)
+        fetchAllPolygons()
+
         val actionBar: ActionBar? = actionBar
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true)
@@ -113,45 +101,27 @@ class MainActivity : AppCompatActivity(), RespRateListenerInterface  {
             startActivity(changeActivity)
         }
 
-
-
-        // Code for tracking Respiratory Rate
-        textRR = findViewById(R.id.MRR)
-
-
-        // Code for tracking step count
-        textStepCount = findViewById(R.id.textStepCount)
-
-
-        // Code for recording video and reporting HeartRate
-        textHR = findViewById(R.id.MHR)
-        cameraFloatingWindow = findViewById(R.id.videoView)
-        val recordButton: Button = findViewById(R.id.record)
-        recordButton.setOnClickListener {
-            //code to record video
+        val directionScreenButton = findViewById<Button>(R.id.directionScreen)
+        directionScreenButton.setOnClickListener {
+            val changeAcivityToDriving = Intent(this@MainActivity, DirectionsScreen::class.java)
+            startActivity(changeAcivityToDriving)
         }
-    }
 
+        locationClient = LocationServices.getFusedLocationProviderClient(this)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-=======
-        AllowPermissions(this)
+        if (ActivityCompat.checkSelfPermission(
+                this,
+                Manifest.permission.ACCESS_FINE_LOCATION
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
+            ActivityCompat.requestPermissions(
+                this,
+                arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),
+                LOCATION_REQUEST_CODE
+            )
+        } else {
+            startLocationUpdates()
+        }
 
         sensorManager = getSystemService(SENSOR_SERVICE) as SensorManager
 
@@ -161,11 +131,13 @@ class MainActivity : AppCompatActivity(), RespRateListenerInterface  {
         registerRRListener()
 
         // Code for tracking step count
-        // To be implemented
+        textStepCount = findViewById(R.id.textStepCount)
+        stepCounterListener = StepCounterListener(this)
+        stepCounterListener.resetStepCount()
+        textStepCount = findViewById(R.id.textStepCount)
+        registerStepCounter()
 
         // Code for recording video and reporting HeartRate
-        // Here recording video is required as a dependency for processing the Video to get heart rate.
-        // Recording video part has been implemented by Aditya Mettu and I am using it as a dependency here.
         textHR = findViewById(R.id.MHR)
         cameraFloatingWindow = findViewById(R.id.videoView)
         videoRecorder = VideoRecorder(this@MainActivity, cameraFloatingWindow, textHR)
@@ -187,7 +159,7 @@ class MainActivity : AppCompatActivity(), RespRateListenerInterface  {
             override fun run() {
                 val hr = extractDouble(textHR.text.toString())
                 val rr = extractDouble(textRR.text.toString())
-                val steps = 0.0 // implemented in another component
+                val steps = extractDouble(textStepCount.text.toString())
                 println("Heart Rate: $hr")
                 println("Resp Rate: $rr")
                 println("Step Rate: $steps")
@@ -212,9 +184,7 @@ class MainActivity : AppCompatActivity(), RespRateListenerInterface  {
                         put("respiratory_rate", rr.toString())
                     }
 
-                    println(jsonObject)
-                    // Sending the Json object to SQS has been implemented in another component by Sravan. Just adding a placeholder here.
-//                    sendToSQS(jsonObject)
+                    sendToSQS(jsonObject)
                 }
 
                 handler.postDelayed(this, 60000) // Reschedule every minute
@@ -232,19 +202,32 @@ class MainActivity : AppCompatActivity(), RespRateListenerInterface  {
         }
     }
 
+    private fun registerStepCounter() {
+        val stepCounterSensor = sensorManager.getDefaultSensor(Sensor.TYPE_STEP_COUNTER)
+        if (stepCounterSensor == null) {
+            Toast.makeText(this, "Step Counter Sensor not available!", Toast.LENGTH_SHORT).show()
+        } else {
+            // Sensor is available, proceed with registering the listener
+            sensorManager.registerListener(stepCounterListener, stepCounterSensor, SensorManager.SENSOR_DELAY_FASTEST)
+        }
+    }
+
     override fun onResume() {
         super.onResume()
         registerRRListener()
+        registerStepCounter()
     }
 
     override fun onPause() {
         super.onPause()
         sensorManager.unregisterListener(respiratoryRateListener)
+        sensorManager.unregisterListener(stepCounterListener)
     }
 
     override fun onDestroy() {
         super.onDestroy()
         handler.removeCallbacksAndMessages(null) // Prevent memory leak
+        locationClient.removeLocationUpdates(locationCallback)
     }
 
     override fun onRespiratoryRateChanged(respiratoryRate: Int) {
@@ -253,6 +236,11 @@ class MainActivity : AppCompatActivity(), RespRateListenerInterface  {
         }
     }
 
+    override fun onStepCountChanged(stepCount: Int) {
+        runOnUiThread {
+            textStepCount.text = "Steps: $stepCount"
+        }
+    }
     private fun AllowPermissions(mainActivity: MainActivity) {
         val PERMISSION_ALL = 1
         val PERMISSIONS = arrayOf(
@@ -284,5 +272,128 @@ class MainActivity : AppCompatActivity(), RespRateListenerInterface  {
         val matchResult = numberRegex.find(text)
         return matchResult?.value?.toDoubleOrNull() ?: 0.0
     }
->>>>>>> main
+
+    private fun fetchAllPolygons() {
+        dynamoDBManager.fetchAllPolygons(
+            onResult = { polygons ->
+                allPolygons = polygons
+            },
+            onError = { exception ->
+                // Display an error message
+                Toast.makeText(this, "Error fetching polygons: ${exception.message}", Toast.LENGTH_LONG).show()
+            }
+        )
+    }
+
+    private fun startLocationUpdates() {
+        val locationRequest = LocationRequest.create().apply {
+            interval = 1000 // Update interval in milliseconds
+            fastestInterval = 1000
+            priority = LocationRequest.PRIORITY_HIGH_ACCURACY
+        }
+
+        if (ActivityCompat.checkSelfPermission(
+                this,
+                Manifest.permission.ACCESS_FINE_LOCATION
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
+            return
+        }
+
+        locationClient.requestLocationUpdates(
+            locationRequest,
+            locationCallback,
+            Looper.getMainLooper()
+        )
+    }
+
+    private val locationCallback = object : LocationCallback() {
+        override fun onLocationResult(locationResult: LocationResult) {
+            for (location in locationResult.locations) {
+                checkGeofenceCrossing(location)
+            }
+        }
+    }
+
+
+    private fun checkGeofenceCrossing(currentLocation: Location) {
+        var isInsideAnyPolygon = false
+
+        for (polygon in allPolygons) {
+            if (isPointInsidePolygon(currentLocation, polygon)) {
+                isInsideAnyPolygon = true
+                break
+            }
+        }
+
+        Log.d("MainActivity", "Inside polygon $currentLocation $isInsideAnyPolygon")
+
+
+        val currentTransition = if (isInsideAnyPolygon) {
+            Geofence.GEOFENCE_TRANSITION_ENTER
+        } else {
+            Geofence.GEOFENCE_TRANSITION_EXIT
+        }
+
+        if (lastTransitionType == null || lastTransitionType != currentTransition) {
+            handleGeofenceTransition(currentTransition)
+            lastTransitionType = currentTransition
+            val isInside = if (currentTransition == Geofence.GEOFENCE_TRANSITION_ENTER) "true" else "false"
+            if(isInside == "false") {
+                val jsonObject = JSONObject().apply {
+                    put("danger", "high")
+                    put("isinside", isInside) // Assuming 'false' as a placeholder
+                    put(
+                        "lat",
+                        currentLocation.latitude.toString()
+                    ) // Replace with actual latitude for current location
+                    put(
+                        "lon",
+                        currentLocation.longitude.toString()
+                    ) // Replace with actual longitude for current location
+                }
+                sendToSQS(jsonObject)
+            }
+        }
+    }
+
+    private fun isPointInsidePolygon(point: Location, polygon: List<LatLng>): Boolean {
+        var result = false
+        var j = polygon.size - 1
+        for (i in polygon.indices) {
+            if (polygon[i].longitude > point.longitude != (polygon[j].longitude > point.longitude) &&
+                point.latitude < (polygon[j].latitude - polygon[i].latitude) *
+                (point.longitude - polygon[i].longitude) /
+                (polygon[j].longitude - polygon[i].longitude) + polygon[i].latitude) {
+                result = !result
+            }
+            j = i
+        }
+        return result
+    }
+
+    private fun handleGeofenceTransition(transitionType: Int) {
+        val message = when (transitionType) {
+            Geofence.GEOFENCE_TRANSITION_ENTER -> "Entering Geofence"
+            Geofence.GEOFENCE_TRANSITION_EXIT -> "Exiting Geofence"
+            Geofence.GEOFENCE_TRANSITION_DWELL -> "Dwelling in Geofence"
+            else -> "Unknown Geofence Transition"
+        }
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        if (requestCode == LOCATION_REQUEST_CODE) {
+            if ((grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
+                startLocationUpdates()
+            } else {
+                // Handle permission denial
+            }
+        }
+    }
 }

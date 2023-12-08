@@ -1,6 +1,5 @@
 package com.example.myapplication
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
@@ -42,11 +41,17 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.withContext
 import java.util.Random
+import com.google.android.gms.maps.model.RoundCap
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.messaging.FirebaseMessaging
 
 class GuardianScreen : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnPolylineClickListener,
     GoogleMap.OnPolygonClickListener, GoogleMap.OnMapClickListener {
     private lateinit var googleMap: GoogleMap
     private var mapInitialised = false
+    private lateinit var appBarConfiguration: AppBarConfiguration
+    private lateinit var binding: ActivityGuardianScreenBinding
     private val markers: MutableList<Marker> = mutableListOf()
     private val coroutineScope = CoroutineScope(Dispatchers.IO)
     private val allPolygonsLiveData = MutableLiveData<List<List<LatLng>>>()
@@ -62,9 +67,7 @@ class GuardianScreen : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnPoly
         long = ""
     )
 
-    @SuppressLint("MissingSuperCall")
     override fun onBackPressed() {
-//        super.onBackPressed()
 //        onMapReady(googleMap)
     }
 
@@ -100,7 +103,7 @@ class GuardianScreen : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnPoly
         val createGeoFencingButton = findViewById<Button>(R.id.createGeoFencing)
         createGeoFencingButton.setOnClickListener {
 
-            val changeToCreateGeoFencingScreen = Intent(this@GuardianScreen , GeoFencingScreen::class.java)
+            val changeToCreateGeoFencingScreen = Intent(this@GuardianScreen , GeoFencing::class.java)
             startActivity(changeToCreateGeoFencingScreen)
         }
         val checkUserSymptomsButton = findViewById<Button>(R.id.checkSysmtoms)
@@ -194,7 +197,7 @@ class GuardianScreen : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnPoly
                 stylePolygon(addedPolygon)
             }
         })
-        markLocationOnMap(LatLng(33.407134, -111.921223))
+
         // Position the map's camera near Alice Springs in the center of Australia,
         // and set the zoom factor so most of Australia shows on the screen.
         googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(LatLng(33.407134, -111.921223), 18f))

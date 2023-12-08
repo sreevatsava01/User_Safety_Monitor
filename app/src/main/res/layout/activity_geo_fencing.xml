@@ -47,6 +47,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
-        tools:context="com.example.myapplication.GeoFencingScreen" />
+        tools:context="com.example.myapplication.GeoFencing" />
 
 </LinearLayout>

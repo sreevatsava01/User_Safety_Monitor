@@ -50,11 +50,6 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
     override fun onUpgrade(p0: SQLiteDatabase?, p1: Int, p2: Int) {
     }
 
-<<<<<<< HEAD
-
-
-
-=======
     fun addPolygon(points: List<LatLng>) {
         val db = this.writableDatabase
         val values = ContentValues()
@@ -87,7 +82,6 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         return points
     }
 
->>>>>>> main
     fun uploadSymptoms(symptomsData: Map<String, Float>) {
         val db = this.writableDatabase
         val values = ContentValues()

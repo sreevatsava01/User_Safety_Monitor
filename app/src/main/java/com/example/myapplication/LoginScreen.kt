@@ -51,35 +51,29 @@ class LoginScreen : AppCompatActivity() {
         }
         val signInbutton = findViewById<Button>(R.id.signInButton)
         signInbutton.setOnClickListener(){
-
+//            val switchToGrandpaActivity = Intent(this@LoginScreen , GuardianScreen::class.java)
+//            startActivity(switchToGrandpaActivity)
             val userNameEditText = findViewById<TextView>(R.id.emailEditText)
             val userName = userNameEditText.text.toString()
             val passwordEditText = findViewById<TextView>(R.id.passwordEditText)
             val password = passwordEditText.text.toString()
-            if(userName.isBlank() || password.isBlank()) {
-                Toast.makeText(
-                    this@LoginScreen,
-                    "Enter Correct credentials",
-                    Toast.LENGTH_SHORT
-                ).show()
-            }
-//            TODO ensure correct password while after inital development
-            if(userName.equals("grandpa") && password.equals("100YrsOld")){
+//            if(userName.isBlank() || password.isBlank()) {
+//                Toast.makeText(
+//                    this@LoginScreen,
+//                    "Enter Correct credentials",
+//                    Toast.LENGTH_SHORT
+//                ).show()
+//            }
+//            //TODO ensure correct password while after inital development
+            if(userName.equals("grandpa") && password.isNotEmpty()){
                 val switchToGrandpaActivity = Intent(this@LoginScreen , MainActivity::class.java)
                 startActivity(switchToGrandpaActivity)
 //                finish()
             }
-            else if(userName.equals("guardian") && password.equals("angel")){
+            if(userName.equals("guardian") && password.isNotEmpty()){
                 val switchToGrandpaActivity = Intent(this@LoginScreen , GuardianScreen::class.java)
                 startActivity(switchToGrandpaActivity)
 //                finish()
-            }
-            else {
-                Toast.makeText(
-                    this@LoginScreen,
-                    "Enter Correct credentials",
-                    Toast.LENGTH_SHORT
-                ).show()
             }
         }
 
@@ -98,5 +92,9 @@ class LoginScreen : AppCompatActivity() {
 //        }
     }
 
-
+//    override fun onSupportNavigateUp(): Boolean {
+//        val navController = findNavController(R.id.nav_host_fragment_content_login_screen)
+//        return navController.navigateUp(appBarConfiguration)
+//                || super.onSupportNavigateUp()
+//    }
 }

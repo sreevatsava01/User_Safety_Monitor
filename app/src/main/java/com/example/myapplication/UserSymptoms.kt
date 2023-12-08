@@ -9,21 +9,13 @@ import kotlinx.coroutines.launch
 
 class UserSymptoms : ComponentActivity() {
 
-<<<<<<< HEAD
-=======
     private lateinit var symptomsDBManager: SymptomsDBManager
->>>>>>> main
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user_symptoms)
 
-<<<<<<< HEAD
-    }
-
-
-=======
         symptomsDBManager = SymptomsDBManager(this)
         symptomsDBManager.fetchLastSymptomsEntry { item ->
             updateUIWithSymptoms(item)
@@ -45,6 +37,5 @@ class UserSymptoms : ComponentActivity() {
             findViewById<RatingBar>(R.id.userfeeling_tiredRating).rating = item["feeling_tired"]?.n?.toFloat() ?: 0f
         }
     }
->>>>>>> main
 
 }
