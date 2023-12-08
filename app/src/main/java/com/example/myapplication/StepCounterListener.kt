@@ -22,7 +22,7 @@ class StepCounterListener(private val stepCountListener: StepCountListener) : Se
             lastMinuteSteps.addLast(Pair(currentTime, currentStepCount))
 
             // Remove steps older than one minute
-            while (lastMinuteSteps.isNotEmpty() && currentTime - lastMinuteSteps.first.first > 60000) {
+            while (lastMinuteSteps.isNotEmpty() && currentTime - lastMinuteSteps.first.first > 120000) {
                 lastMinuteSteps.removeFirst()
             }
 

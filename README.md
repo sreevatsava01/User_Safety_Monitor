@@ -27,7 +27,9 @@ pip3 install boto3
 - Download the zip file and unzip to a folder.
 - Open the app in Android Studio.
 - Connect an android device and run the application.
-- Click "Record" button to record a video by placing your tip of the finger close to the back camera (to stop the recording, click record again). This updates the heart rate.
+- To login to **guardian** UI, use *guardian* as username and *12345* as password
+- To login to **grandpa** UI, use *grandpa* as username and *12345* as password
+- In grandpa UI, Click "Record" button to record a video by placing your tip of the finger close to the back camera (to stop the recording, click record again). This updates the heart rate.
 - Perform movements (walking or running) to updated the Respiratory Rate. This will also add step count
 - For every one minute, we run the Fuzzy Logic to get a Danger level, which is displayed as a Toast in the app main window.
 - For testing geo-fencing, set the geofence by logging into **guardian** UI. This will update the fence in the DB

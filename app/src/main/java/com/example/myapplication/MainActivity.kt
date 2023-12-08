@@ -26,6 +26,7 @@ import com.google.android.gms.location.LocationResult
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.maps.model.LatLng
 import org.json.JSONObject
+import kotlin.math.max
 
 class MainActivity : AppCompatActivity(), StepCountListener, RespRateListenerInterface  {
     var heartRate: Int = 0
@@ -56,6 +57,8 @@ class MainActivity : AppCompatActivity(), StepCountListener, RespRateListenerInt
 
     private lateinit var fuzzyLogicController: FuzzyLogicController
     private val handler = Handler()
+
+    private var maxRespRate: Int = 0
 
     override fun onBackPressed() {
         //do nothign
@@ -187,9 +190,9 @@ class MainActivity : AppCompatActivity(), StepCountListener, RespRateListenerInt
                     sendToSQS(jsonObject)
                 }
 
-                handler.postDelayed(this, 60000) // Reschedule every minute
+                handler.postDelayed(this, 120000) // Reschedule every minute
             }
-        }, 60000)
+        }, 120000)
     }
 
     private fun registerRRListener() {
@@ -232,7 +235,8 @@ class MainActivity : AppCompatActivity(), StepCountListener, RespRateListenerInt
 
     override fun onRespiratoryRateChanged(respiratoryRate: Int) {
         runOnUiThread {
-            textRR.text = "Respiratory Rate is : $respiratoryRate"
+            maxRespRate = max(maxRespRate, respiratoryRate)
+            textRR.text = "Respiratory Rate is : $maxRespRate"
         }
     }
 
