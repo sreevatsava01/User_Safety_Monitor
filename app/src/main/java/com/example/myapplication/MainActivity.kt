@@ -76,16 +76,6 @@ class MainActivity : AppCompatActivity(), StepCountListener, RespRateListenerInt
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true)
         }
-        val uploadSignsButton = findViewById<Button>(R.id.uploadMeasurements)
-        uploadSignsButton.setOnClickListener() {
-            hasmeasureHR = true
-            hasmeasureRR = true
-            Toast.makeText(
-                this@MainActivity,
-                "Recorded Measurement successfully",
-                Toast.LENGTH_SHORT
-            ).show()
-        }
 
         val sympButton = findViewById<Button>(R.id.symptoms)
         sympButton.setOnClickListener() {
